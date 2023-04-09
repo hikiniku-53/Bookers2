@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <header>
+    <header class="mb-3">
       <nav class="navbar navbar-expand-lg bg-dark navbar-dark w-100">
         <div class="container">
           <a class="navbar-brand p-5px" href="/">Bookers</a>
@@ -20,12 +20,13 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
+
+              <% if user_signed_in? %>
               <li class="nav-link p-8px">
-                <%= link_to root_path, class: 'd-flex align-items-center text-light text-decoration-none' do %>
+                <%= link_to user_path(current_user.id), class: 'd-flex align-items-center text-light text-decoration-none' do %>
                   <i class="fas fa-home"></i>&nbsp;Home
                 <% end %>
               </li>
-              <% if user_signed_in? %>
               <li class="nav-link p-8px">
                 <%= link_to users_path, class: 'd-flex align-items-center text-light text-decoration-none' do %>
                   <i class="fas fa-users"></i>&nbsp;Users
@@ -42,6 +43,11 @@
                 <% end %>
               </li>
               <% else %>
+              <li class="nav-link p-8px">
+                <%= link_to root_path, class: 'd-flex align-items-center text-light text-decoration-none' do %>
+                  <i class="fas fa-home"></i>&nbsp;Home
+                <% end %>
+              </li>
               <li class="nav-link p-8px">
                 <%= link_to about_path, class: 'd-flex align-items-center text-light text-decoration-none' do %>
                   <i class="fas fa-link"></i>&nbsp;About
@@ -63,11 +69,15 @@
         </div>
       </nav>
     </header>
+    <main class="mb-5">
     <%= yield %>
+    </main>
     <footer>
-      <row class="d-flex">
-        <p class="mx-auto mb-16px">CopyRight Infratop.inc</p>
-      </row>
+      <div class="container">
+        <row class="d-flex">
+          <p class="mx-auto">CopyRight Infratop.inc</p>
+        </row>
+      </div>
     </footer>
   </body>
 </html>

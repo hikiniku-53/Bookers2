@@ -1,2 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+button-wrapper.btn {
+    font-size: 14px;
+    padding: 4px 8px;
+}
