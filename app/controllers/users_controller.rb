@@ -20,15 +20,21 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-    @user.update(user_params)
+    user = User.find(params[:id])
+    user.update(user_params)
     redirect_to user_path
+  end
+
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+    redirect_to users_path
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :profile_image)
+    params.require(:user).permit(:name, :image, :introduction)
   end
 
   def is_matching_login_user

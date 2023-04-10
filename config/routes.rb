@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :books, only: [:index, :show, :edit, :update, :create,]
   patch 'books/:id' => 'books#update', as: 'update_book'
   delete 'books/:id' => 'books#destroy', as: 'destroy_book'
+  patch 'users/:id' => 'users#update', as: 'update_user'
+  delete 'users/:id' => 'users#destroy', as: 'destroy_user'
 end

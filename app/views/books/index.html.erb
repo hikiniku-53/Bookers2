@@ -24,7 +24,7 @@
             <tr>
               <td>
                 <%= link_to user_path(book.user_id) do %>
-                  <%= image_tag  @user.get_profile_image(80,80) %>
+                  <%= image_tag  User.find(book.user_id).get_image(80,80) %>
                 <% end %>
               </td>
 
